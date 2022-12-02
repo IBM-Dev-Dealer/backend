@@ -1,0 +1,542 @@
+{
+	"info": {
+		"_postman_id": "7997425e-9dc6-4ae7-8696-4f9200cf0b31",
+		"name": "ts dbg",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "tech_stacks",
+					"item": [
+						{
+							"name": "get user tech stacks",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"5\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/tech_stacks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"tech_stacks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update user tech stacks",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"3\",\r\n    \"techStack\": [\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"Rust\",\r\n                \"codename\": \"rust\"\r\n            },\r\n            \"seniorityLevel\": {\r\n                \"label\": \"Junior\",\r\n                \"codename\": \"junior\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/tech_stacks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"tech_stacks"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "projects",
+					"item": [
+						{
+							"name": "projectUserProjects",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/user_projects",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"user_projects"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "feedback",
+					"item": [
+						{
+							"name": "add user feedback",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"projectName\": \"perulelulelulel12ula\",\r\n    \"projectID\": 1,\r\n    \"to\": 1,\r\n    \"businessResults\": \"Expect more\",\r\n    \"clientSuccess\": \"Expect more\",\r\n    \"innovation\": \"Expect more\",\r\n    \"teamInteractionRating\": 3,\r\n    \"suggestedSeniorityLevels\": \"medium level\" \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/user_feedback",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"user_feedback"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user feedback",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"to\": \"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/user_feedback",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"user_feedback"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/developers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"developers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "projectDevelopers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test3@test.com\",\r\n    \"password\": \"1234\",\r\n    \"firstName\": \"Ovidiu\",\r\n    \"lastName\": \"Roman\",\r\n    \"photo\": \"dsifbsodvnsonfbpdon\",\r\n    \"phone\": \"3427234934\",\r\n    \"about\": \"advfbsifgvbgsiodfhgogsndfovhdspfvsouhgoerngvodhfondolfhbvodnfb\",\r\n    \"projectID\": 1,\r\n    \"techStacks\": [\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"JavaScript\",\r\n                \"codename\": \"javascript\"\r\n            },\r\n            \"seniorityLevel\": {\r\n                \"label\": \"Junior\",\r\n                \"codename\": \"junior\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"test@test.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/tech_stacks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"tech_stacks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "project",
+			"item": [
+				{
+					"name": "feedback",
+					"item": [
+						{
+							"name": "add project feedback",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"from\": 3,\r\n    \"projectName\": \"perulelulelulel12ula\",\r\n    \"rating\": 2,\r\n    \"pros\": \"this is a pro1\",\r\n    \"cons\": \"this is a con2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/project_feedback",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project_feedback"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get project feedback",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"projectName\": \"perulelulelulel12ula\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/project_feedback",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"project_feedback"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "project",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"client\": \"perulelu\",\r\n    \"clientLogoURL\": \"wefwef\",\r\n    \"projectName\": \"perulelulelulel12ula\",\r\n    \"projectPeriod\": {\r\n        \"start\": \"2022-12-06T22:00:00.000Z\",\r\n        \"end\": \"2022-12-13T22:00:00.000Z\"\r\n    },\r\n    \"technologies\": [\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"AngularJS\",\r\n                \"codename\": \"angularjs\"\r\n            }\r\n        },\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"ReactJS\",\r\n                \"codename\": \"reactjs\"\r\n            }\r\n        },\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"ExpressJS\",\r\n                \"codename\": \"ExpressJS\"\r\n            }\r\n        },\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"PostgreSQL\",\r\n                \"codename\": \"PostgreSQL\"\r\n            }\r\n        }\r\n    ],\r\n    \"requiredCapacity\": [\r\n        {\r\n            \"developers\": {\r\n                \"label\": 2,\r\n                \"codename\": 2\r\n            },\r\n            \"seniorityLevel\": {\r\n                \"label\": \"Junior-Mid\",\r\n                \"codename\": \"junior-mid\"\r\n            },\r\n            \"technology\": {\r\n                \"label\": \"AngularJS\",\r\n                \"codename\": \"angularjs\"\r\n            }\r\n        }\r\n    ],\r\n    \"repositories\": [\r\n        \"frf\"\r\n    ],\r\n    \"slackChannels\": [\r\n        \"#34f\"\r\n    ],\r\n    \"accessZones\": [\r\n        \"erf\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "project",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update project",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectID\": 1,\r\n    \"fieldsToUpdate\": {\r\n        \"accessZones\": [\r\n            \"erf\",\r\n            \"abcd\"\r\n        ],\r\n        \"requiredCapacity\": [\r\n            {\r\n                \"developers\": {\r\n                    \"label\": 2,\r\n                    \"codename\": 2\r\n                },\r\n                \"seniorityLevel\": {\r\n                    \"label\": \"Junior-Mid\",\r\n                    \"codename\": \"junior-mid\"\r\n                },\r\n                \"technology\": {\r\n                    \"label\": \"VueJS\",\r\n                    \"codename\": \"vueJS\"\r\n                }\r\n            },\r\n            {\r\n                \"developers\": {\r\n                    \"label\": 2,\r\n                    \"codename\": 2\r\n                },\r\n                \"seniorityLevel\": {\r\n                    \"label\": \"Junior-Mid\",\r\n                    \"codename\": \"junior-mid\"\r\n                },\r\n                \"technology\": {\r\n                    \"label\": \"Razor\",\r\n                    \"codename\": \"razor\"\r\n                }\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete project",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"projectID\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/projects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"projects"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "health",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
