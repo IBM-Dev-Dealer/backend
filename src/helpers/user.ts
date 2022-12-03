@@ -4,6 +4,7 @@ import { NotFoundError } from "typescript-rest/dist/server/model/errors";
 import { User } from "../entity/User";
 import { error } from "console";
 import { nextTick } from "process";
+import { stringifyAllProps } from "../utils";
 
 class UserHandler {
     private repository: Repository<User>;
@@ -46,7 +47,7 @@ class UserHandler {
 
         if(existingUser) {
             const userToUpdate = { ...existingUser, ...fieldsToUpdate, updatedAt: new Date() };
-            const updatedUser = await this.repository.save(userToUpdate);
+            const updatedUser = await this.repository.save(stringifyAllProps(userToUpdate));
 
             return updatedUser;
         }
