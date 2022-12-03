@@ -56,7 +56,7 @@ class UserHandler {
     }
 
     public async addUser(user: Object) {
-        const newUser = await this.repository.save(user)
+        const newUser = await this.repository.save(stringifyAllProps(user))
 
         return newUser;
     }
@@ -101,7 +101,7 @@ class UserHandler {
             userToUpdate.techStacks = JSON.stringify(userData.techStack);
             userToUpdate.updatedAt = new Date();
 
-            const updatedUser = await this.repository.save(userToUpdate);
+            const updatedUser = await this.repository.save(stringifyAllProps(userToUpdate));
 
             return updatedUser;
         };
