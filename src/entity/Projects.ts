@@ -22,6 +22,9 @@ export class Project {
 
   @Column('varchar', { length: 15000, default: [] })
   repositories: string[] = [];
+  
+  @Column('varchar', { length: 15000, default: [] })
+  technologies: string[] = [];
 
   @Column('varchar', { length: 15000, default: [] })
   slackChannels: string[] = [];
