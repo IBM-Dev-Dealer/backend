@@ -4,22 +4,7 @@ import { NotFoundError } from "typescript-rest/dist/server/model/errors";
 import { Project } from "../entity/Projects";
 import { ProjectRequirements } from "../entity/ProjectRequirements";
 import { User } from "../entity/User";
-
-const stringifyAllProps = (object: {[key: string]: any}) => {
-    const newObj:{[key: string]: any} = {};
-    for (const key in object) {
-        if (Object.prototype.hasOwnProperty.call(object, key)) {
-            console.log("typeof object[key]", typeof object[key], object[key]);
-            const element = object[key];
-            if(typeof object[key] === 'object') {
-                newObj[key] = JSON.stringify(element);
-            } else {
-                newObj[key] = element;
-            }
-        }
-    }
-    return newObj;
-}
+import { stringifyAllProps } from "../utils";
 
 class ProjectHandler {
     private repository: Repository<Project>;
