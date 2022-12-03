@@ -1,0 +1,917 @@
+openapi: 3.0.0
+info:
+  title: ts dbg
+  contact: {}
+  version: '1.0'
+servers:
+  - url: http://localhost:4000
+    variables: {}
+paths:
+  /tech_stacks/1:
+    get:
+      tags:
+        - tech_stacks
+      summary: get user tech stacks
+      operationId: getusertechstacks
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /tech_stacks:
+    put:
+      tags:
+        - tech_stacks
+      summary: update user tech stacks
+      operationId: updateusertechstacks
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/updateusertechstacksrequest'
+                - example:
+                    id: '1'
+                    techStack:
+                      - technology:
+                          label: Rust
+                          codename: rust
+                        seniorityLevel:
+                          label: Junior
+                          codename: junior
+            example:
+              id: '1'
+              techStack:
+                - technology:
+                    label: Rust
+                    codename: rust
+                  seniorityLevel:
+                    label: Junior
+                    codename: junior
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /user_projects/1:
+    get:
+      tags:
+        - projects
+      summary: projectUserProjects
+      operationId: projectUserProjects
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /user_feedback:
+    post:
+      tags:
+        - feedback
+      summary: add user feedback
+      operationId: adduserfeedback
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/adduserfeedbackrequest'
+                - example:
+                    projectName: perulelulelulel12ula
+                    projectID: 1
+                    to: 1
+                    businessResults: Expect more
+                    clientSuccess: Expect more
+                    innovation: Expect more
+                    teamInteractionRating: 3
+                    suggestedSeniorityLevels: medium level
+            example:
+              projectName: perulelulelulel12ula
+              projectID: 1
+              to: 1
+              businessResults: Expect more
+              clientSuccess: Expect more
+              innovation: Expect more
+              teamInteractionRating: 3
+              suggestedSeniorityLevels: medium level
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /user_feedback/1:
+    get:
+      tags:
+        - feedback
+      summary: get user feedback
+      operationId: getuserfeedback
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /project_feedback:
+    post:
+      tags:
+        - feedback
+      summary: add project feedback
+      operationId: addprojectfeedback
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/addprojectfeedbackrequest'
+                - example:
+                    from: 3
+                    projectName: perulelulelulel12ula
+                    rating: 2
+                    pros: this is a pro1
+                    cons: this is a con2
+            example:
+              from: 3
+              projectName: perulelulelulel12ula
+              rating: 2
+              pros: this is a pro1
+              cons: this is a con2
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /project_feedback/perulelulelulel12ula:
+    get:
+      tags:
+        - feedback
+      summary: get project feedback
+      operationId: getprojectfeedback
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /user/test3@test.com:
+    get:
+      tags:
+        - user
+      summary: user
+      operationId: user
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /all_users:
+    get:
+      tags:
+        - user
+      summary: all users
+      operationId: allusers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /user:
+    post:
+      tags:
+        - user
+      summary: user
+      operationId: Postuser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/userrequest'
+                - example:
+                    email: test3@test.com
+                    password: '1234'
+                    firstName: Ovidiu
+                    lastName: Roman
+                    photo: dsifbsodvnsonfbpdon
+                    phone: '3427234934'
+                    about: advfbsifgvbgsiodfhgogsndfovhdspfvsouhgoerngvodhfondolfhbvodnfb
+                    projectID: 1
+                    techStacks:
+                      - technology:
+                          label: JavaScript
+                          codename: javascript
+                        seniorityLevel:
+                          label: Junior
+                          codename: junior
+            example:
+              email: test3@test.com
+              password: '1234'
+              firstName: Ovidiu
+              lastName: Roman
+              photo: dsifbsodvnsonfbpdon
+              phone: '3427234934'
+              about: advfbsifgvbgsiodfhgogsndfovhdspfvsouhgoerngvodhfondolfhbvodnfb
+              projectID: 1
+              techStacks:
+                - technology:
+                    label: JavaScript
+                    codename: javascript
+                  seniorityLevel:
+                    label: Junior
+                    codename: junior
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+        - user
+      summary: delete user
+      operationId: deleteuser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /projects:
+    post:
+      tags:
+        - project
+      summary: project
+      operationId: project
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/projectrequest'
+                - example:
+                    client: perulelu
+                    clientLogoURL: wefwef
+                    projectName: perulelulelulel12ula
+                    projectPeriod:
+                      start: '2022-12-06T22:00:00.000Z'
+                      end: '2022-12-13T22:00:00.000Z'
+                    technologies:
+                      - technology:
+                          label: AngularJS
+                          codename: angularjs
+                      - technology:
+                          label: ReactJS
+                          codename: reactjs
+                      - technology:
+                          label: ExpressJS
+                          codename: ExpressJS
+                      - technology:
+                          label: PostgreSQL
+                          codename: PostgreSQL
+                    requiredCapacity:
+                      - developers:
+                          label: 2
+                          codename: 2
+                        seniorityLevel:
+                          label: Junior-Mid
+                          codename: junior-mid
+                        technology:
+                          label: AngularJS
+                          codename: angularjs
+                    repositories:
+                      - frf
+                    slackChannels:
+                      - '#34f'
+                    accessZones:
+                      - erf
+            example:
+              client: perulelu
+              clientLogoURL: wefwef
+              projectName: perulelulelulel12ula
+              projectPeriod:
+                start: '2022-12-06T22:00:00.000Z'
+                end: '2022-12-13T22:00:00.000Z'
+              technologies:
+                - technology:
+                    label: AngularJS
+                    codename: angularjs
+                - technology:
+                    label: ReactJS
+                    codename: reactjs
+                - technology:
+                    label: ExpressJS
+                    codename: ExpressJS
+                - technology:
+                    label: PostgreSQL
+                    codename: PostgreSQL
+              requiredCapacity:
+                - developers:
+                    label: 2
+                    codename: 2
+                  seniorityLevel:
+                    label: Junior-Mid
+                    codename: junior-mid
+                  technology:
+                    label: AngularJS
+                    codename: angularjs
+              repositories:
+                - frf
+              slackChannels:
+                - '#34f'
+              accessZones:
+                - erf
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    put:
+      tags:
+        - project
+      summary: update project
+      operationId: updateproject
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/updateprojectrequest'
+                - example:
+                    projectID: 1
+                    fieldsToUpdate:
+                      accessZones:
+                        - erf
+                        - abcd
+                      requiredCapacity:
+                        - developers:
+                            label: 2
+                            codename: 2
+                          seniorityLevel:
+                            label: Junior-Mid
+                            codename: junior-mid
+                          technology:
+                            label: VueJS
+                            codename: vueJS
+                        - developers:
+                            label: 2
+                            codename: 2
+                          seniorityLevel:
+                            label: Junior-Mid
+                            codename: junior-mid
+                          technology:
+                            label: Razor
+                            codename: razor
+            example:
+              projectID: 1
+              fieldsToUpdate:
+                accessZones:
+                  - erf
+                  - abcd
+                requiredCapacity:
+                  - developers:
+                      label: 2
+                      codename: 2
+                    seniorityLevel:
+                      label: Junior-Mid
+                      codename: junior-mid
+                    technology:
+                      label: VueJS
+                      codename: vueJS
+                  - developers:
+                      label: 2
+                      codename: 2
+                    seniorityLevel:
+                      label: Junior-Mid
+                      codename: junior-mid
+                    technology:
+                      label: Razor
+                      codename: razor
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+    delete:
+      tags:
+        - project
+      summary: delete project
+      operationId: deleteproject
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /all_projects:
+    get:
+      tags:
+        - project
+      summary: all projects
+      operationId: allprojects
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /projects/1:
+    get:
+      tags:
+        - project
+      summary: single project
+      operationId: singleproject
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /:
+    get:
+      tags:
+        - Misc
+      summary: health
+      operationId: health
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    updateusertechstacksrequest:
+      title: updateusertechstacksrequest
+      required:
+        - id
+        - techStack
+      type: object
+      properties:
+        id:
+          type: string
+        techStack:
+          type: array
+          items:
+            $ref: '#/components/schemas/TechStack'
+          description: ''
+      example:
+        id: '1'
+        techStack:
+          - technology:
+              label: Rust
+              codename: rust
+            seniorityLevel:
+              label: Junior
+              codename: junior
+    TechStack:
+      title: TechStack
+      required:
+        - technology
+        - seniorityLevel
+      type: object
+      properties:
+        technology:
+          $ref: '#/components/schemas/Technology'
+        seniorityLevel:
+          $ref: '#/components/schemas/SeniorityLevel'
+      example:
+        technology:
+          label: Rust
+          codename: rust
+        seniorityLevel:
+          label: Junior
+          codename: junior
+    Technology:
+      title: Technology
+      required:
+        - label
+        - codename
+      type: object
+      properties:
+        label:
+          type: string
+        codename:
+          type: string
+      example:
+        label: Rust
+        codename: rust
+    SeniorityLevel:
+      title: SeniorityLevel
+      required:
+        - label
+        - codename
+      type: object
+      properties:
+        label:
+          type: string
+        codename:
+          type: string
+      example:
+        label: Junior
+        codename: junior
+    adduserfeedbackrequest:
+      title: adduserfeedbackrequest
+      required:
+        - projectName
+        - projectID
+        - to
+        - businessResults
+        - clientSuccess
+        - innovation
+        - teamInteractionRating
+        - suggestedSeniorityLevels
+      type: object
+      properties:
+        projectName:
+          type: string
+        projectID:
+          type: integer
+          format: int32
+        to:
+          type: integer
+          format: int32
+        businessResults:
+          type: string
+        clientSuccess:
+          type: string
+        innovation:
+          type: string
+        teamInteractionRating:
+          type: integer
+          format: int32
+        suggestedSeniorityLevels:
+          type: string
+      example:
+        projectName: perulelulelulel12ula
+        projectID: 1
+        to: 1
+        businessResults: Expect more
+        clientSuccess: Expect more
+        innovation: Expect more
+        teamInteractionRating: 3
+        suggestedSeniorityLevels: medium level
+    userrequest:
+      title: userrequest
+      required:
+        - email
+        - password
+        - firstName
+        - lastName
+        - photo
+        - phone
+        - about
+        - projectID
+        - techStacks
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        photo:
+          type: string
+        phone:
+          type: string
+        about:
+          type: string
+        projectID:
+          type: integer
+          format: int32
+        techStacks:
+          type: array
+          items:
+            $ref: '#/components/schemas/TechStack'
+          description: ''
+      example:
+        email: test3@test.com
+        password: '1234'
+        firstName: Ovidiu
+        lastName: Roman
+        photo: dsifbsodvnsonfbpdon
+        phone: '3427234934'
+        about: advfbsifgvbgsiodfhgogsndfovhdspfvsouhgoerngvodhfondolfhbvodnfb
+        projectID: 1
+        techStacks:
+          - technology:
+              label: JavaScript
+              codename: javascript
+            seniorityLevel:
+              label: Junior
+              codename: junior
+    deleteuserrequest:
+      title: deleteuserrequest
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+      example:
+        email: test@test.com
+    updateuserrequest:
+      title: updateuserrequest
+      required:
+        - id
+      type: object
+      properties:
+        id:
+          type: string
+      example:
+        id: '1'
+    addprojectfeedbackrequest:
+      title: addprojectfeedbackrequest
+      required:
+        - from
+        - projectName
+        - rating
+        - pros
+        - cons
+      type: object
+      properties:
+        from:
+          type: integer
+          format: int32
+        projectName:
+          type: string
+        rating:
+          type: integer
+          format: int32
+        pros:
+          type: string
+        cons:
+          type: string
+      example:
+        from: 3
+        projectName: perulelulelulel12ula
+        rating: 2
+        pros: this is a pro1
+        cons: this is a con2
+    projectrequest:
+      title: projectrequest
+      required:
+        - client
+        - clientLogoURL
+        - projectName
+        - projectPeriod
+        - technologies
+        - requiredCapacity
+        - repositories
+        - slackChannels
+        - accessZones
+      type: object
+      properties:
+        client:
+          type: string
+        clientLogoURL:
+          type: string
+        projectName:
+          type: string
+        projectPeriod:
+          $ref: '#/components/schemas/ProjectPeriod'
+        technologies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Technology2'
+          description: ''
+        requiredCapacity:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredCapacity'
+          description: ''
+        repositories:
+          type: array
+          items:
+            type: string
+          description: ''
+        slackChannels:
+          type: array
+          items:
+            type: string
+          description: ''
+        accessZones:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        client: perulelu
+        clientLogoURL: wefwef
+        projectName: perulelulelulel12ula
+        projectPeriod:
+          start: '2022-12-06T22:00:00.000Z'
+          end: '2022-12-13T22:00:00.000Z'
+        technologies:
+          - technology:
+              label: AngularJS
+              codename: angularjs
+          - technology:
+              label: ReactJS
+              codename: reactjs
+          - technology:
+              label: ExpressJS
+              codename: ExpressJS
+          - technology:
+              label: PostgreSQL
+              codename: PostgreSQL
+        requiredCapacity:
+          - developers:
+              label: 2
+              codename: 2
+            seniorityLevel:
+              label: Junior-Mid
+              codename: junior-mid
+            technology:
+              label: AngularJS
+              codename: angularjs
+        repositories:
+          - frf
+        slackChannels:
+          - '#34f'
+        accessZones:
+          - erf
+    ProjectPeriod:
+      title: ProjectPeriod
+      required:
+        - start
+        - end
+      type: object
+      properties:
+        start:
+          type: string
+        end:
+          type: string
+      example:
+        start: '2022-12-06T22:00:00.000Z'
+        end: '2022-12-13T22:00:00.000Z'
+    Technology2:
+      title: Technology2
+      required:
+        - technology
+      type: object
+      properties:
+        technology:
+          $ref: '#/components/schemas/Technology'
+      example:
+        technology:
+          label: AngularJS
+          codename: angularjs
+    RequiredCapacity:
+      title: RequiredCapacity
+      required:
+        - developers
+        - seniorityLevel
+        - technology
+      type: object
+      properties:
+        developers:
+          $ref: '#/components/schemas/Developers'
+        seniorityLevel:
+          $ref: '#/components/schemas/SeniorityLevel'
+        technology:
+          $ref: '#/components/schemas/Technology'
+      example:
+        developers:
+          label: 2
+          codename: 2
+        seniorityLevel:
+          label: Junior-Mid
+          codename: junior-mid
+        technology:
+          label: AngularJS
+          codename: angularjs
+    Developers:
+      title: Developers
+      required:
+        - label
+        - codename
+      type: object
+      properties:
+        label:
+          type: integer
+          format: int32
+        codename:
+          type: integer
+          format: int32
+      example:
+        label: 2
+        codename: 2
+    updateprojectrequest:
+      title: updateprojectrequest
+      required:
+        - projectID
+        - fieldsToUpdate
+      type: object
+      properties:
+        projectID:
+          type: integer
+          format: int32
+        fieldsToUpdate:
+          $ref: '#/components/schemas/FieldsToUpdate'
+      example:
+        projectID: 1
+        fieldsToUpdate:
+          accessZones:
+            - erf
+            - abcd
+          requiredCapacity:
+            - developers:
+                label: 2
+                codename: 2
+              seniorityLevel:
+                label: Junior-Mid
+                codename: junior-mid
+              technology:
+                label: VueJS
+                codename: vueJS
+            - developers:
+                label: 2
+                codename: 2
+              seniorityLevel:
+                label: Junior-Mid
+                codename: junior-mid
+              technology:
+                label: Razor
+                codename: razor
+    FieldsToUpdate:
+      title: FieldsToUpdate
+      required:
+        - accessZones
+        - requiredCapacity
+      type: object
+      properties:
+        accessZones:
+          type: array
+          items:
+            type: string
+          description: ''
+        requiredCapacity:
+          type: array
+          items:
+            $ref: '#/components/schemas/RequiredCapacity'
+          description: ''
+      example:
+        accessZones:
+          - erf
+          - abcd
+        requiredCapacity:
+          - developers:
+              label: 2
+              codename: 2
+            seniorityLevel:
+              label: Junior-Mid
+              codename: junior-mid
+            technology:
+              label: VueJS
+              codename: vueJS
+          - developers:
+              label: 2
+              codename: 2
+            seniorityLevel:
+              label: Junior-Mid
+              codename: junior-mid
+            technology:
+              label: Razor
+              codename: razor
+    deleteprojectrequest:
+      title: deleteprojectrequest
+      required:
+        - projectID
+      type: object
+      properties:
+        projectID:
+          type: integer
+          format: int32
+      example:
+        projectID: 1
+tags:
+  - name: tech_stacks
+  - name: projects
+  - name: feedback
+  - name: user
+  - name: project
+  - name: Misc
+    description: ''
