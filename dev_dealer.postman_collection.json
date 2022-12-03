@@ -21,7 +21,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"id\": \"5\"\r\n}",
+									"raw": "",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -29,14 +29,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4000/tech_stacks",
+									"raw": "http://localhost:4000/tech_stacks/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "4000",
 									"path": [
-										"tech_stacks"
+										"tech_stacks",
+										"1"
 									]
 								}
 							},
@@ -49,7 +50,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"id\": \"3\",\r\n    \"techStack\": [\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"Rust\",\r\n                \"codename\": \"rust\"\r\n            },\r\n            \"seniorityLevel\": {\r\n                \"label\": \"Junior\",\r\n                \"codename\": \"junior\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"raw": "{\r\n    \"id\": \"1\",\r\n    \"techStack\": [\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"Rust\",\r\n                \"codename\": \"rust\"\r\n            },\r\n            \"seniorityLevel\": {\r\n                \"label\": \"Junior\",\r\n                \"codename\": \"junior\"\r\n            }\r\n        }\r\n    ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -85,7 +86,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"id\": 1\r\n}",
+									"raw": "",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -93,14 +94,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4000/user_projects",
+									"raw": "http://localhost:4000/user_projects/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "4000",
 									"path": [
-										"user_projects"
+										"user_projects",
+										"1"
 									]
 								}
 							},
@@ -149,7 +151,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"to\": \"1\"\r\n}",
+									"raw": "",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -157,14 +159,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4000/user_feedback",
+									"raw": "http://localhost:4000/user_feedback/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "4000",
 									"path": [
-										"user_feedback"
+										"user_feedback",
+										"1"
 									]
 								}
 							},
@@ -182,7 +185,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -190,14 +193,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/developers",
+							"raw": "http://localhost:4000/user/test3@test.com",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"developers"
+								"user",
+								"test3@test.com"
 							]
 						}
 					},
@@ -244,7 +248,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -252,14 +256,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/projects",
+							"raw": "http://localhost:4000/user_projects/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"projects"
+								"user_projects",
+								"1"
 							]
 						}
 					},
@@ -323,11 +328,8 @@
 				},
 				{
 					"name": "update user",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
-						"method": "GET",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -398,7 +400,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"projectName\": \"perulelulelulel12ula\"\r\n}",
+									"raw": "",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -406,14 +408,15 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4000/project_feedback",
+									"raw": "http://localhost:4000/project_feedback/perulelulelulel12ula",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "4000",
 									"path": [
-										"project_feedback"
+										"project_feedback",
+										"perulelulelulel12ula"
 									]
 								}
 							},
@@ -490,7 +493,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 1\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -498,14 +501,15 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/projects",
+							"raw": "http://localhost:4000/projects/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"projects"
+								"projects",
+								"1"
 							]
 						}
 					},
