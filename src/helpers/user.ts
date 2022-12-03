@@ -21,6 +21,14 @@ class UserHandler {
         return user;
     }
 
+    public async getAllUsers() {
+        const allUsers = await this.repository
+            .createQueryBuilder('User')
+            .getMany();
+
+        return allUsers;
+    }
+
     public async getProjectDevelopers(projectID: string) {
         const projectDevelopers = await this.repository
             .createQueryBuilder('User')

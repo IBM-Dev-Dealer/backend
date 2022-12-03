@@ -53,3 +53,13 @@ class DevTechStacks {
     }
 }
 
+@Path('/all_users')
+class AllUsers {
+    userFunctions = new UserHandler();
+
+    @GET
+    getAllUsers(): any {
+        return this.userFunctions.getAllUsers();
+    }
+}
+
