@@ -144,6 +144,14 @@ class ProjectHandler {
 
         return [];
     }
+	
+	public async getAllProjects() {
+        const allProjects = await this.repository
+            .createQueryBuilder('Project')
+            .getMany();
+
+        return allProjects ? allProjects : [];
+    }
 }
 
 export default ProjectHandler;

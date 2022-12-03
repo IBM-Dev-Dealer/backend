@@ -37,3 +37,12 @@ class UserProjects {
     }
 }
 
+@Path('/all_projects')
+class AllProjects {
+    projectFunctions = new ProjectHandler();
+
+    @GET
+    getAllProjects(project: any): any {
+        return this.projectFunctions.getAllProjects();
+    }
+}
