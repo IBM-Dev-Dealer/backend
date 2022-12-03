@@ -33,9 +33,9 @@ export class User {
   @Column('varchar', { length: 1500, nullable: true })
   projectID: string = "";
 
-  @Column({ type: "timestamp", default: "now()" })
+  @Column({ type: "timestamptz", default: "now()" })
   createdAt: Date = new Date();
 
-  @Column({ type: "timestamp", default: "now()" })
+  @Column({ type: "timestamptz", default: "now()" })
   updatedAt: Date = new Date();
 }

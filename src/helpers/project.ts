@@ -51,7 +51,7 @@ class ProjectHandler {
                 await this.removeProjectRequirement(capacityItemToDelete);
             })
 
-            var timeStampNow = new Date().toISOString();
+            var timeStampNow = new Date();
             const projectToUpdate = { ...existingProject, ...fieldsToUpdate, updatedAt: timeStampNow };
 
             if (projectToUpdate.requiredCapacity) {

@@ -35,10 +35,10 @@ export class Project {
   @Column('varchar', { length: 15000, default: [] })
   requiredCapacity: any[] = [];
 
-  @Column({ type: "timestamp", default: "now()" })
+  @Column({ type: "timestamptz", default: "now()" })
   createdAt: Date = new Date();
 
-  @Column({ type: "timestamp", default: "now()" })
+  @Column({ type: "timestamptz", default: "now()" })
   updatedAt: Date = new Date();
 
   @OneToMany(() => ProjectRequirements, projectRequirements => Project.projectRequirements)

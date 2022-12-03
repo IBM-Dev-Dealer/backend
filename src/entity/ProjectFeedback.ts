@@ -17,9 +17,9 @@ export class ProjectFeedback {
     @Column('varchar', { length: 15000, default: '' })
     cons: string;
 
-    @Column({ type: "timestamp", default: "now()" })
+    @Column({ type: "timestamptz", default: "now()" })
     createdAt: Date = new Date();
 
-    @Column({ type: "timestamp", default: "now()" })
+    @Column({ type: "timestamptz", default: "now()" })
     updatedAt: Date = new Date();
 }
