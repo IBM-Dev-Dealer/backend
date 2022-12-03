@@ -1,4 +1,4 @@
-import { GET, POST, Path } from "typescript-rest";
+import { GET, POST, Path, PathParam } from "typescript-rest";
 
 import ProjectFeedbackHandler from '../helpers/projectFeedback';
 
@@ -11,9 +11,10 @@ class project_feedback {
         return this.projectFeedbackFunctions.addProjectFeedback(projectFeedback);
     }
 
+    @Path(":projectName")
     @GET
-    getProjectFeedback(projectData: any): any {
-        return this.projectFeedbackFunctions.getProjectFeedback(projectData.projectName);
+    getProjectFeedback(@PathParam('projectName') projectName: string): any {
+        return this.projectFeedbackFunctions.getProjectFeedback(projectName);
     }
 }
 

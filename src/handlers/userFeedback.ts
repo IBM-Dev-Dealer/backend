@@ -1,4 +1,4 @@
-import { GET, POST, Path } from "typescript-rest";
+import { GET, POST, Path, PathParam } from "typescript-rest";
 
 import UserFeedbackHandler from '../helpers/userFeedback';
 
@@ -11,8 +11,9 @@ class user_feedback {
         return this.projectFeedbackFunctions.addUserFeedback(projectFeedback);
     }
 
+    @Path(":to")
     @GET
-    getUserFeedback(projectData: any): any {
-        return this.projectFeedbackFunctions.getUserFeedback(projectData.to);
+    getUserFeedback(@PathParam('to') to: string): any {
+        return this.projectFeedbackFunctions.getUserFeedback(to);
     }
 }

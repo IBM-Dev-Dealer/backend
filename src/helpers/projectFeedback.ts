@@ -16,6 +16,7 @@ class ProjectFeedbackHandler {
     }
 
     public async getProjectFeedback(projectName: string) {
+        console.log(`this is the project name ${projectName}`);
         const projectFeedbackList = await this.repository
             .createQueryBuilder('ProjectFeedback')
             .where('ProjectFeedback.projectName = :projectName', { projectName: projectName })

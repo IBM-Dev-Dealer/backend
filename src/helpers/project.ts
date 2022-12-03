@@ -145,7 +145,7 @@ class ProjectHandler {
 
         return [];
     }
-	
+
 	public async getAllProjects() {
         const allProjects = await this.repository
             .createQueryBuilder('Project')

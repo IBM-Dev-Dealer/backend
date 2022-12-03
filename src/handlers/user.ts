@@ -1,4 +1,4 @@
-import { DELETE, GET, POST, PUT, Path } from "typescript-rest";
+import { DELETE, GET, POST, PUT, Path, PathParam } from "typescript-rest";
 
 import UserHandler from '../helpers/user';
 
@@ -6,9 +6,10 @@ import UserHandler from '../helpers/user';
 class User {
     userFunctions = new UserHandler();
 
+    @Path(":email")
     @GET
-    getUser(user: any): any {
-        return this.userFunctions.getUser(user.email);
+    getUser(@PathParam('email') email: string): any {
+        return this.userFunctions.getUser(email);
     }
 
     @POST
@@ -42,9 +43,10 @@ class Developers {
 class DevTechStacks {
     developerSkillsFunctions = new UserHandler();
 
+    @Path(":userID")
     @GET
-    getDeveloperTechStack(userID: any): any {
-        return this.developerSkillsFunctions.getDeveloperTechStack(userID.id);
+    getDeveloperTechStack(@PathParam('userID') userID: string): any {
+        return this.developerSkillsFunctions.getDeveloperTechStack(userID);
     }
 
     @PUT
