@@ -5,6 +5,17 @@ import { Project } from "../entity/Projects";
 import { ProjectRequirements } from "../entity/ProjectRequirements";
 import { User } from "../entity/User";
 
+const stringifyAllProps = (object: {[key: string]: any}) => {
+    const newObj:{[key: string]: any} = {};
+    for (const key in object) {
+        if (Object.prototype.hasOwnProperty.call(object, key)) {
+            const element = object[key];
+            newObj[key] = JSON.stringify(element);
+        }
+    }
+    return newObj;
+}
+
 class ProjectHandler {
     private repository: Repository<Project>;
     private userRepository: Repository<User>;
@@ -64,7 +75,7 @@ class ProjectHandler {
                 })
             }
 
-            let updatedProject = await this.repository.save(projectToUpdate);
+            let updatedProject = await this.repository.save(stringifyAllProps(projectToUpdate));
             updatedProject.requiredCapacity = projectToUpdate.requiredCapacity;
 
             return updatedProject;
@@ -85,7 +96,7 @@ class ProjectHandler {
                 });
             })
         }
-        const newProject = await this.repository.save(project)
+        const newProject = await this.repository.save(stringifyAllProps(project))
 
         return newProject;
     }
