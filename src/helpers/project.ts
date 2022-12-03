@@ -9,8 +9,13 @@ const stringifyAllProps = (object: {[key: string]: any}) => {
     const newObj:{[key: string]: any} = {};
     for (const key in object) {
         if (Object.prototype.hasOwnProperty.call(object, key)) {
+            console.log("typeof object[key]", typeof object[key], object[key]);
             const element = object[key];
-            newObj[key] = JSON.stringify(element);
+            if(typeof object[key] === 'object') {
+                newObj[key] = JSON.stringify(element);
+            } else {
+                newObj[key] = element;
+            }
         }
     }
     return newObj;
