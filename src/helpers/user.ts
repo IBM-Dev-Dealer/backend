@@ -45,7 +45,7 @@ class UserHandler {
             .getOne();
 
         if(existingUser) {
-            const userToUpdate = { ...existingUser, ...fieldsToUpdate, updatedAt: Date.now() };
+            const userToUpdate = { ...existingUser, ...fieldsToUpdate, updatedAt: new Date() };
             const updatedUser = await this.repository.save(userToUpdate);
 
             return updatedUser;
