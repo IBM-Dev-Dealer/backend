@@ -47,6 +47,9 @@ export class UserFeedback {
     @Column('varchar')
     suggestedSeniorityLevels: string;
 
+    @Column('varchar', { length: 15000 })
+    additionalFeedback: string;
+
     @Column({ type: "timestamptz", default: "now()" })
     createdAt: Date = new Date();
 
