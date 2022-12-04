@@ -1,3 +1,4 @@
+import { stringifyAllProps } from "../utils";
 import { Repository, getRepository } from "typeorm";
 
 import { UserFeedback } from "../entity/UserFeedback";
@@ -10,7 +11,7 @@ class UserFeedbackHandler {
     }
 
     public async addUserFeedback(userFeedback: Object) {
-        const newUserFeedback = await this.repository.save(userFeedback)
+        const newUserFeedback = await this.repository.save(stringifyAllProps(userFeedback))
 
         return newUserFeedback;
     }
