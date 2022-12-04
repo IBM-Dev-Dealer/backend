@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 export enum userFeedbackLevel {
-    expectMore = 'Expect more',
+    expectMore = 'Expect More',
     achieves = 'Achieves',
     exceeds = 'Exceeds'
 }
