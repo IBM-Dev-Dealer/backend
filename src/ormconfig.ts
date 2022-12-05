@@ -11,7 +11,7 @@ export default {
   password: process.env.DB_PASSWORD || "1234",
   database: process.env.DB_NAME || "dev_dealer",
   synchronize: !process.env.DB_NO_SYNC,
-  logging: !process.env.DB_NO_LOGS,
+  logging: false,
   autoReconnect: true,
   reconnectTries: Number.MAX_VALUE,
   reconnectInterval: 2000,
