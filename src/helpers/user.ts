@@ -41,7 +41,7 @@ class UserHandler {
         return projectDevelopers;
     }
 
-    public async updateUser(userEmail: string, fieldsToUpdate: Object): Promise<User[]> {
+    public async updateUser(userEmail: string, fieldsToUpdate: Object): Promise<User> {
         const existingUser = await this.repository
             .createQueryBuilder('User')
             .where('User.email = :userEmail', { userEmail: userEmail })

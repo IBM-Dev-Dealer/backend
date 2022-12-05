@@ -1,3 +1,4 @@
+import { ProjectFeedback } from "../entity/ProjectFeedback";
 import { GET, POST, Path, PathParam } from "typescript-rest";
 
 import ProjectFeedbackHandler from '../helpers/projectFeedback';
@@ -7,7 +8,7 @@ class project_feedback {
     projectFeedbackFunctions = new ProjectFeedbackHandler();
 
     @POST
-    addProjectFeedback(projectFeedback: Object): any {
+    addProjectFeedback(projectFeedback: ProjectFeedback): any {
         return this.projectFeedbackFunctions.addProjectFeedback(projectFeedback);
     }
 

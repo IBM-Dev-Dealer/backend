@@ -23,7 +23,7 @@ class UserMethods {
     }
 
     @PUT
-    async updateUser(updateData: any): Promise<User> {
+    async updateUser(updateData: any): Promise<any> {
         const updatedUser = this.userFunctions.updateUser(updateData.userEmail, updateData.fieldsToUpdate);
 
         return updatedUser;

@@ -106,7 +106,7 @@ class ProjectHandler {
         return newProjectRequirement;
     }
 
-    public async removeProjectRequirement(requirement: any): Promise<ProjectRequirements> {
+    public async removeProjectRequirement(requirement: any): Promise<any> {
         const removedProjectRequirement = await this.requirementRepository.remove(requirement)
 
         if (!removedProjectRequirement) {
