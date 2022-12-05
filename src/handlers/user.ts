@@ -9,24 +9,32 @@ class UserMethods {
 
     @Path(":email")
     @GET
-    getUser(@PathParam('email') email: string) {
-        return this.userFunctions.getUser(email);
+    async getUser(@PathParam('email') email: string): Promise<User> {
+        const user = await this.userFunctions.getUser(email);
+        return user;
     }
 
     @POST
-    addUser(user: User): any {
+    async addUser(user: User): Promise<User> {
         user.projectID = user.projectID ? JSON.parse(user.projectID) : '[]';
-        return this.userFunctions.addUser(user);
+        const addedUser = this.userFunctions.addUser(user);
+
+        return addedUser;
     }
 
     @PUT
-    updateUser(updateData: any): any {
-        return this.userFunctions.updateUser(updateData.userEmail, updateData.fieldsToUpdate);
+    async updateUser(updateData: any): Promise<User> {
+        const updatedUser = this.userFunctions.updateUser(updateData.userEmail, updateData.fieldsToUpdate);
+
+        return updatedUser;
     }
 
+    @Path(":email")
     @DELETE
-    deleteUser(user: any): any {
-        return this.userFunctions.deleteUser(user.email);
+    async deleteUser(@PathParam('email') email: string): Promise<User> {
+        const deletedUser = await this.userFunctions.deleteUser(email);
+
+        return deletedUser;
     }
 }
 
@@ -35,9 +43,12 @@ class UserMethods {
 class Developers {
     developerFunctions = new UserHandler();
 
+    @Path(":projectID")
     @GET
-    getProjectDevelopers(projectID: any): any {
-        return this.developerFunctions.getProjectDevelopers(projectID.id);
+    getProjectDevelopers(@PathParam('projectID') projectID: number): Promise<User[]> {
+        const projectDevelopers = this.developerFunctions.getProjectDevelopers(projectID);
+
+        return projectDevelopers;
     }
 }
 

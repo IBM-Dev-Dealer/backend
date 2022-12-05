@@ -9,6 +9,7 @@ import { stringifyAllProps } from "../utils";
 class ProjectHandler {
     private repository: Repository<Project>;
     private userRepository: Repository<User>;
+    private projectRepository: Repository<Project>;
     private requirementRepository: Repository<ProjectRequirements>;
 
     constructor() {
@@ -128,20 +129,21 @@ class ProjectHandler {
         return true;
     }
 
+
     public async getDeveloperProjects(userID: string) {
         const userData = await this.userRepository
             .createQueryBuilder('User')
             .where('User.id = :userID', { userID: userID })
             .getOne();
 
-            if(userData) {
-                const userProjects = await this.repository
-                    .createQueryBuilder('Project')
-                    .where('Project.id IN(:...userProjects)', { userProjects: [userData.projectID] })
-                    .getMany();
+        if (userData) {
+            const userProjects = await this.repository
+                .createQueryBuilder('Project')
+                .where('Project.id IN(:...userProjects)', { userProjects: [userData.projectID] })
+                .getMany();
 
-                return userProjects;
-            }
+            return userProjects;
+        }
 
         return [];
     }

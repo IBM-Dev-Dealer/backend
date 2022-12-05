@@ -2,8 +2,6 @@ import { Repository, getRepository } from "typeorm";
 
 import { NotFoundError } from "typescript-rest/dist/server/model/errors";
 import { User } from "../entity/User";
-import { error } from "console";
-import { nextTick } from "process";
 import { stringifyAllProps } from "../utils";
 
 class UserHandler {
@@ -13,11 +11,15 @@ class UserHandler {
         this.repository = getRepository(User);
     }
 
-    public async getUser(email: string) {
+    public async getUser(email: string): Promise<User> {
         const user = await this.repository
         .createQueryBuilder('User')
         .where('User.email = :userEmail', { userEmail: email})
         .getOne();
+
+        if(!user) {
+            throw new Error("Could not find the user profile matching the email address!");
+        }
 
         return user;
     }
@@ -30,10 +32,10 @@ class UserHandler {
         return allUsers;
     }
 
-    public async getProjectDevelopers(projectID: string) {
+    public async getProjectDevelopers(projectID: number) {
         const projectDevelopers = await this.repository
             .createQueryBuilder('User')
-            .where('User.projectID = :projectID', { projectID: projectID })
+            .where('User.projectID LIKE :projectID', { projectID: projectID })
             .getMany();
 
         return projectDevelopers;
@@ -47,17 +49,23 @@ class UserHandler {
 
         if(existingUser) {
             const userToUpdate = { ...existingUser, ...fieldsToUpdate, updatedAt: new Date() };
-            const updatedUser = await this.repository.save(stringifyAllProps(userToUpdate));
+            const updatedUser = await this.repository.save(userToUpdate);
 
+            if (!updatedUser) {
+                throw new Error("Unable to update the user");
+            }
             return updatedUser;
         }
 
         throw new NotFoundError("User to update not found");
     }
 
-    public async addUser(user: Object) {
-        const newUser = await this.repository.save(stringifyAllProps(user))
+    public async addUser(user: User): Promise<User> {
+        const newUser = await this.repository.save(user)
 
+        if(!newUser) {
+            throw new Error("Could not add this user!");
+        }
         return newUser;
     }
 
@@ -69,10 +77,14 @@ class UserHandler {
 
         if(existingUser) {
             const deletedUser = await this.repository.remove(existingUser);
+
+            if (!deletedUser) {
+                throw new Error("Could not delete this user!");
+            }
             return deletedUser;
         }
 
-        return true;
+        throw new Error("No user to delete!");
     }
 
     public async getDeveloperTechStack(userID: string) {
@@ -89,8 +101,6 @@ class UserHandler {
     }
 
     public async updateDeveloperTechStack(userData: any) {
-        console.log('<----------->');
-        console.log(userData.id);
         const existingUser = await this.repository
             .createQueryBuilder('User')
             .where('User.id = :userID', { userID: userData.id })

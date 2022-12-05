@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-export enum userFeedbackLevel {
-    expectMore = 'Expect More',
+export enum userFeedbackLevelList {
+    expectMore = 'Expect more',
     achieves = 'Achieves',
     exceeds = 'Exceeds'
 }
@@ -22,24 +22,24 @@ export class UserFeedback {
 
     @Column({
         type: 'enum',
-        enum: userFeedbackLevel,
-        default: userFeedbackLevel.expectMore
+        enum: userFeedbackLevelList,
+        default: userFeedbackLevelList.expectMore
     })
-    businessResults: userFeedbackLevel;
+    businessResults: userFeedbackLevelList;
 
     @Column({
         type: 'enum',
-        enum: userFeedbackLevel,
-        default: userFeedbackLevel.expectMore
+        enum: userFeedbackLevelList,
+        default: userFeedbackLevelList.expectMore
     })
-    clientSuccess: userFeedbackLevel;
+    clientSuccess: userFeedbackLevelList;
 
     @Column({
         type: 'enum',
-        enum: userFeedbackLevel,
-        default: userFeedbackLevel.expectMore
+        enum: userFeedbackLevelList,
+        default: userFeedbackLevelList.expectMore
     })
-    innovation: userFeedbackLevel;
+    innovation: userFeedbackLevelList;
 
     @Column('varchar', { length: 1 })
     teamInteractionRating: string;
