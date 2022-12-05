@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "7997425e-9dc6-4ae7-8696-4f9200cf0b31",
-		"name": "ts dbg",
+		"name": "dev_dealer",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -29,7 +29,7 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4000/tech_stacks/1",
+									"raw": "http://localhost:4000/tech_stacks/2",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -37,7 +37,7 @@
 									"port": "4000",
 									"path": [
 										"tech_stacks",
-										"1"
+										"2"
 									]
 								}
 							},
@@ -50,7 +50,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"id\": \"1\",\r\n    \"techStack\": [\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"Rust\",\r\n                \"codename\": \"rust\"\r\n            },\r\n            \"seniorityLevel\": {\r\n                \"label\": \"Junior\",\r\n                \"codename\": \"junior\"\r\n            }\r\n        }\r\n    ]\r\n}",
+									"raw": "{\r\n    \"id\": \"2\",\r\n    \"techStack\": [\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"Rust\",\r\n                \"codename\": \"rust\"\r\n            },\r\n            \"seniorityLevel\": {\r\n                \"label\": \"Junior\",\r\n                \"codename\": \"junior\"\r\n            }\r\n        }\r\n    ]\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -256,7 +256,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/user_projects/1",
+							"raw": "http://localhost:4000/user_projects/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -264,7 +264,7 @@
 							"port": "4000",
 							"path": [
 								"user_projects",
-								"1"
+								"2"
 							]
 						}
 					},
@@ -277,7 +277,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"test3@test.com\",\r\n    \"password\": \"1234\",\r\n    \"firstName\": \"Ovidiu\",\r\n    \"lastName\": \"Roman\",\r\n    \"photo\": \"dsifbsodvnsonfbpdon\",\r\n    \"phone\": \"3427234934\",\r\n    \"about\": \"advfbsifgvbgsiodfhgogsndfovhdspfvsouhgoerngvodhfondolfhbvodnfb\",\r\n    \"projectID\": 1,\r\n    \"techStacks\": [\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"JavaScript\",\r\n                \"codename\": \"javascript\"\r\n            },\r\n            \"seniorityLevel\": {\r\n                \"label\": \"Junior\",\r\n                \"codename\": \"junior\"\r\n            }\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"email\": \"test12@test.com\",\r\n    \"password\": \"1234\",\r\n    \"firstName\": \"Ovidiu\",\r\n    \"lastName\": \"Roman\",\r\n    \"photo\": \"dsifbsodvnsonfbpdon\",\r\n    \"phone\": \"3427234934\",\r\n    \"about\": \"advfbsifgvbgsiodfhgogsndfovhdspfvsouhgoerngvodhfondolfhbvodnfb\",\r\n    \"projectID\": \"[3,2]\",\r\n    \"techStacks\": [\r\n        {\r\n            \"technology\": {\r\n                \"label\": \"JavaScript\",\r\n                \"codename\": \"javascript\"\r\n            },\r\n            \"seniorityLevel\": {\r\n                \"label\": \"Junior\",\r\n                \"codename\": \"junior\"\r\n            }\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -305,7 +305,36 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"test@test.com\"\r\n}",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/user/test1@test.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"user",
+								"test1@test.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userEmail\": \"test1@test.com\",\r\n    \"fieldsToUpdate\": {\r\n        \"password\": \"8910\",\r\n        \"firstName\": \"Ovidiu\",\r\n        \"lastName\": \"Roman\"\r\n    }\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -321,34 +350,6 @@
 							"port": "4000",
 							"path": [
 								"user"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update user",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"1\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4000/tech_stacks",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4000",
-							"path": [
-								"tech_stacks"
 							]
 						}
 					},
