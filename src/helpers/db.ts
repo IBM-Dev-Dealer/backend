@@ -1,13 +1,15 @@
 import {Connection, createConnection, getConnection} from "typeorm";
+import { Logger, LoggerTypes } from '../common/logger';
 
 import ORMConfig from "../ormconfig";
 
 export const DBConnect = async () => {
+  const logger = new Logger();
   let connection: Connection | undefined;
   try {
     connection = getConnection();
-  } catch (e) {
-    console.log("Error while trying to get the connection");
+  } catch (connectionGetError) {
+    logger.log(`Error while trying to get the DB connection ${connectionGetError}`, LoggerTypes.error);
   }
 
   try {
@@ -18,10 +20,10 @@ export const DBConnect = async () => {
     } else {
       await createConnection(ORMConfig);
     }
-    console.log("🌴 Database connection was successful!");
-  } catch (e) {
-    console.error('ERROR: Database connection failed!!', e);
-    throw e;
+    logger.log(`Database connection was successful!`, LoggerTypes.info);
+  } catch (connectionError) {
+    logger.log(`ERROR: Database connection failed!`, LoggerTypes.error);
+    throw connectionError;
   }
 };
 
@@ -31,7 +33,7 @@ export const TryDBConnect = async (onError: Function, next?: Function) => {
     if (next) {
       next();
     }
-  } catch (e) {
+  } catch (error) {
     onError();
   }
 };
