@@ -1,5 +1,8 @@
 import {ConnectionOptions} from "typeorm";
 import path from "path";
+import * as dotenv from 'dotenv';
+dotenv.config();
+console.log("DB_HOST=", process.env.DB_HOST);
 
 const isCompiled = path.extname(__filename).includes('js');
 

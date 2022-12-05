@@ -13,7 +13,9 @@
     "dependencies": {
         "body-parser": "*",
         "cors": "*",
+        "dotenv": "^16.0.3",
         "express": "*",
+        "pg": "^8.8.0",
         "typeorm": "*",
         "typescript-rest": "*",
         "vercel": "*",
