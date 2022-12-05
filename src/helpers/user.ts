@@ -24,7 +24,7 @@ class UserHandler {
         return user;
     }
 
-    public async getAllUsers() {
+    public async getAllUsers(): Promise<User[]> {
         const allUsers = await this.repository
             .createQueryBuilder('User')
             .getMany();
@@ -32,7 +32,7 @@ class UserHandler {
         return allUsers;
     }
 
-    public async getProjectDevelopers(projectID: number) {
+    public async getProjectDevelopers(projectID: number): Promise<User[]> {
         const projectDevelopers = await this.repository
             .createQueryBuilder('User')
             .where('User.projectID LIKE :projectID', { projectID: projectID })
@@ -41,7 +41,7 @@ class UserHandler {
         return projectDevelopers;
     }
 
-    public async updateUser(userEmail: string, fieldsToUpdate: Object) {
+    public async updateUser(userEmail: string, fieldsToUpdate: Object): Promise<User[]> {
         const existingUser = await this.repository
             .createQueryBuilder('User')
             .where('User.email = :userEmail', { userEmail: userEmail })
@@ -49,7 +49,7 @@ class UserHandler {
 
         if(existingUser) {
             const userToUpdate = { ...existingUser, ...fieldsToUpdate, updatedAt: new Date() };
-            const updatedUser = await this.repository.save(userToUpdate);
+            const updatedUser = await this.repository.save(stringifyAllProps(userToUpdate));
 
             if (!updatedUser) {
                 throw new Error("Unable to update the user");
@@ -61,7 +61,7 @@ class UserHandler {
     }
 
     public async addUser(user: User): Promise<User> {
-        const newUser = await this.repository.save(user)
+        const newUser = await this.repository.save(stringifyAllProps(user))
 
         if(!newUser) {
             throw new Error("Could not add this user!");

@@ -18,7 +18,7 @@ class ProjectHandler {
         this.requirementRepository = getRepository(ProjectRequirements);
     }
 
-    public async getProject(projectID: string) {
+    public async getProject(projectID: string): Promise<Project> {
         const project = await this.repository
             .createQueryBuilder('Project')
             .where('Project.id = :projectID', { projectID: projectID })
@@ -32,9 +32,11 @@ class ProjectHandler {
 
             return project;
         }
+
+        throw new Error("Could not find the project!");
     }
 
-    public async updateProject(projectID: string, fieldsToUpdate: Object) {
+    public async updateProject(projectID: string, fieldsToUpdate: Object): Promise<Project> {
         let existingProject = await this.repository
             .createQueryBuilder('Project')
             .where('Project.id = :projectID', { projectID: projectID })
@@ -75,8 +77,7 @@ class ProjectHandler {
         throw new NotFoundError("Project to update not found");
     }
 
-    public async addProject(project: any) {
-        console.log(JSON.stringify(project, null, '\t'));
+    public async addProject(project: any): Promise<Project> {
         if(project.requiredCapacity) {
             project.requiredCapacity.map(async (capacityItem: any) => {
                 await this.addProjectRequirement({
@@ -87,26 +88,34 @@ class ProjectHandler {
                 });
             })
         }
-        const newProject = await this.repository.save(stringifyAllProps(project))
+        const addedProject = await this.repository.save(stringifyAllProps(project))
 
-        return newProject;
+        if (!addedProject) {
+            throw new Error("Could not add new project!");
+        }
+
+        return addedProject;
     }
 
-    public async addProjectRequirement(requirement: any) {
-        console.log(JSON.stringify(requirement, null, '\t'));
+    public async addProjectRequirement(requirement: any): Promise<ProjectRequirements> {
         const newProjectRequirement = await this.requirementRepository.save(requirement)
 
+        if (!newProjectRequirement) {
+            throw new Error("Could not add new project requirements!");
+        }
         return newProjectRequirement;
     }
 
-    public async removeProjectRequirement(requirement: any) {
-        console.log(JSON.stringify(requirement, null, '\t'));
+    public async removeProjectRequirement(requirement: any): Promise<ProjectRequirements> {
         const removedProjectRequirement = await this.requirementRepository.remove(requirement)
 
+        if (!removedProjectRequirement) {
+            throw new Error("Could not remove the project requirement!");
+        }
         return removedProjectRequirement;
     }
 
-    public async deleteProject(projectID: string) {
+    public async deleteProject(projectID: string): Promise<Project> {
         const existingProject = await this.repository
             .createQueryBuilder('Project')
             .where('Project.id = :projectID', { projectID: projectID })
@@ -126,11 +135,11 @@ class ProjectHandler {
             return deletedProject;
         }
 
-        return true;
+        throw new Error("Could delete the project!");
     }
 
 
-    public async getDeveloperProjects(userID: string) {
+    public async getDeveloperProjects(userID: string): Promise<Project[]> {
         const userData = await this.userRepository
             .createQueryBuilder('User')
             .where('User.id = :userID', { userID: userID })
@@ -148,7 +157,7 @@ class ProjectHandler {
         return [];
     }
 
-	public async getAllProjects() {
+    public async getAllProjects(): Promise<Project[]> {
         const allProjects = await this.repository
             .createQueryBuilder('Project')
             .getMany();
