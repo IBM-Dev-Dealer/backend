@@ -1,5 +1,5 @@
 import {Connection, createConnection, getConnection} from "typeorm";
-import { Logger, LoggerTypes } from '../common/logger';
+import { Logger, LoggerTypes } from '../common/Logger';
 
 import ORMConfig from "../ormconfig";
 

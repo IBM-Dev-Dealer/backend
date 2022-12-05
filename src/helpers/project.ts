@@ -1,4 +1,4 @@
-import { Logger, LoggerTypes } from '../common/logger';
+import { Logger, LoggerTypes } from '../common/Logger';
 import { Repository, getRepository } from "typeorm";
 
 import { Project } from "../entity/Projects";
