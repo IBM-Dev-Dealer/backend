@@ -1,19 +1,21 @@
+import { User } from "../entity/User";
 import { DELETE, GET, POST, PUT, Path, PathParam } from "typescript-rest";
 
 import UserHandler from '../helpers/user';
 
 @Path('/user')
-class User {
+class UserMethods {
     userFunctions = new UserHandler();
 
     @Path(":email")
     @GET
-    getUser(@PathParam('email') email: string): any {
+    getUser(@PathParam('email') email: string) {
         return this.userFunctions.getUser(email);
     }
 
     @POST
-    addUser(user: Object): any {
+    addUser(user: User): any {
+        user.projectID = user.projectID ? JSON.parse(user.projectID) : '[]';
         return this.userFunctions.addUser(user);
     }
 
