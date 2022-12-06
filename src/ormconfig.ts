@@ -5,6 +5,7 @@ dotenv.config();
 console.log("DB_HOST=", process.env.DB_HOST);
 
 const isCompiled = path.extname(__filename).includes('js');
+console.log("isCompiled", isCompiled);
 
 export default {
   type: "postgres",
